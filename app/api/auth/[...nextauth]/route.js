@@ -34,17 +34,17 @@ const handler = NextAuth({
         // if not create a new user and save to DB
         if (!userExists) {
           await User.create({
-          email: profile.email,
-          username: profile.name.replace(" ", "").toLowerCase(),
-          image: profile.picture
-        })
-      }
+            email: profile.email,
+            username: profile.name.replace(" ", "").toLowerCase(),
+            image: profile.picture
+          })
+        }
       
-      return true
-    } catch (error) {
-      console.log(error)
-      return false
-    }
+        return true
+      } catch (error) {
+        console.log(error)
+        return false
+      }
     }
   },
   secret: process.env.NEXTAUTH_URL_SECRET
